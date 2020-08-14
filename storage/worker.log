@@ -1,0 +1,440 @@
+[2020-06-09 15:48:00][LjmvxMsCBplrrNyZMHjG9U0E86OpcDlB] Processing: App\Notifications\PostReplied
+[2020-06-09 15:48:00][FMlDQo61DhcCnZwTpbjJaydBayGfr0fP] Processing: App\Notifications\PostReplied
+[2020-06-09 15:48:00][LjmvxMsCBplrrNyZMHjG9U0E86OpcDlB] Processed:  App\Notifications\PostReplied
+[2020-06-09 15:48:02][FMlDQo61DhcCnZwTpbjJaydBayGfr0fP] Processed:  App\Notifications\PostReplied
+[2020-06-10 06:51:55][mpikImFCLMCzpzIsEM70fZe31buxxvO5] Processing: App\Events\MessageSent
+[2020-06-10 06:51:55][mpikImFCLMCzpzIsEM70fZe31buxxvO5] Processed:  App\Events\MessageSent
+[2020-06-10 07:12:23][pHSW4H7wi23xLioCqhu7Tgbev4kt1BKq] Processing: App\Events\MessageSent
+[2020-06-10 07:12:23][pHSW4H7wi23xLioCqhu7Tgbev4kt1BKq] Processed:  App\Events\MessageSent
+[2020-06-14 07:36:59][Y5CjbxrW7doqPsEJpvka0UC8ZdEnPG6X] Processing: App\Notifications\PostReplied
+[2020-06-14 07:36:59][TvIQ6Jl5NM76a54EWZi1pA30dmoP3gTQ] Processing: App\Notifications\PostReplied
+[2020-06-14 07:36:59][Y5CjbxrW7doqPsEJpvka0UC8ZdEnPG6X] Processed:  App\Notifications\PostReplied
+[2020-06-14 07:37:00][TvIQ6Jl5NM76a54EWZi1pA30dmoP3gTQ] Processed:  App\Notifications\PostReplied
+sh: error while loading shared libraries: libc.so.6: cannot map zero-fill pages: Cannot allocate memory
+sh: error while loading shared libraries: libc.so.6: cannot map zero-fill pages: Cannot allocate memory
+
+   ErrorException  : proc_open(): fork failed - Cannot allocate memory
+
+  at /var/www/html/HelloBlog/vendor/symfony/process/Process.php:337
+
+   ErrorException  : proc_open(): fork failed - Cannot allocate memory
+
+  at /var/www/html/HelloBlog/vendor/symfony/process/Process.php:337
+    333|         if (!is_dir($this->cwd)) {
+    334|             throw new RuntimeException(sprintf('The provided cwd "%s" does not exist.', $this->cwd));
+    335|         }
+    336| 
+  > 337|         $this->process = proc_open($commandline, $descriptors, $this->processPipes->pipes, $this->cwd, $envPairs, $options);
+    338| 
+    339|         if (!\is_resource($this->process)) {
+    340|             throw new RuntimeException('Unable to launch a new process.');
+    341|         }
+    333|         if (!is_dir($this->cwd)) {
+    334|             throw new RuntimeException(sprintf('The provided cwd "%s" does not exist.', $this->cwd));
+    335|         }
+    336| 
+  > 337|         $this->process = proc_open($commandline, $descriptors, $this->processPipes->pipes, $this->cwd, $envPairs, $options);
+    338| 
+    339|         if (!\is_resource($this->process)) {
+    340|             throw new RuntimeException('Unable to launch a new process.');
+    341|         }
+
+  Exception trace:
+
+  1   proc_open("exec '/usr/bin/php-7.3' 'artisan' 'queue:work' '--once' '--queue=default' '--delay=0' '--memory=128' '--sleep=3' '--tries=3'", [], "/var/www/html/HelloBlog", [])
+      /var/www/html/HelloBlog/vendor/symfony/process/Process.php:337
+
+  2   Symfony\Component\Process\Process::start(Object(Closure))
+      /var/www/html/HelloBlog/vendor/symfony/process/Process.php:233
+
+  Please use the argument -v to see more details.
+
+  Exception trace:
+
+  1   proc_open("exec '/usr/bin/php-7.3' 'artisan' 'queue:work' '--once' '--queue=default' '--delay=0' '--memory=128' '--sleep=3' '--tries=3'", [], "/var/www/html/HelloBlog", [])
+      /var/www/html/HelloBlog/vendor/symfony/process/Process.php:337
+
+  2   Symfony\Component\Process\Process::start(Object(Closure))
+      /var/www/html/HelloBlog/vendor/symfony/process/Process.php:233
+
+  Please use the argument -v to see more details.
+PHP Warning:  PHP Startup: Unable to load dynamic library 'mbstring.so' (tried: /usr/lib64/php/7.3/modules/mbstring.so (/usr/lib64/php/7.3/modules/mbstring.so: failed to map segment from shared object: Cannot allocate memory), /usr/lib64/php/7.3/modules/mbstring.so.so (/usr/lib64/php/7.3/modules/mbstring.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'sqlite3.so' (tried: /usr/lib64/php/7.3/modules/sqlite3.so (libsqlite3.so.0: cannot map zero-fill pages: Cannot allocate memory), /usr/lib64/php/7.3/modules/sqlite3.so.so (/usr/lib64/php/7.3/modules/sqlite3.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+
+   ErrorException  : proc_open(): fork failed - Cannot allocate memory
+
+  at /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+    123|             1 => ['pipe', 'w'],
+    124|             2 => ['pipe', 'w'],
+    125|         ];
+    126| 
+  > 127|         $process = proc_open('stty -a | grep columns', $descriptorspec, $pipes, null, null, ['suppress_errors' => true]);
+    128|         if (\is_resource($process)) {
+    129|             $info = stream_get_contents($pipes[1]);
+    130|             fclose($pipes[1]);
+    131|             fclose($pipes[2]);
+
+  Exception trace:
+
+  1   proc_open("stty -a | grep columns", [], [])
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+
+  2   Symfony\Component\Console\Terminal::getSttyColumns()
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:70
+
+  Please use the argument -v to see more details.
+
+   ErrorException  : proc_open(): fork failed - Cannot allocate memory
+
+  at /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+    123|             1 => ['pipe', 'w'],
+    124|             2 => ['pipe', 'w'],
+    125|         ];
+    126| 
+  > 127|         $process = proc_open('stty -a | grep columns', $descriptorspec, $pipes, null, null, ['suppress_errors' => true]);
+    128|         if (\is_resource($process)) {
+    129|             $info = stream_get_contents($pipes[1]);
+    130|             fclose($pipes[1]);
+    131|             fclose($pipes[2]);
+
+  Exception trace:
+
+  1   proc_open("stty -a | grep columns", [], [])
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+
+  2   Symfony\Component\Console\Terminal::getSttyColumns()
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:70
+
+  Please use the argument -v to see more details.
+
+   Whoops\Exception\ErrorException  : PHP Startup: Unable to load dynamic library 'sqlite3.so' (tried: /usr/lib64/php/7.3/modules/sqlite3.so (libsqlite3.so.0: cannot map zero-fill pages: Cannot allocate memory), /usr/lib64/php/7.3/modules/sqlite3.so.so (/usr/lib64/php/7.3/modules/sqlite3.so.so: cannot open shared object file: No such file or directory))
+
+  at Unknown:0
+    1|
+
+  Exception trace:
+
+  1   Whoops\Run::handleError("PHP Startup: Unable to load dynamic library 'sqlite3.so' (tried: /usr/lib64/php/7.3/modules/sqlite3.so (libsqlite3.so.0: cannot map zero-fill pages: Cannot allocate memory), /usr/lib64/php/7.3/modules/sqlite3.so.so (/usr/lib64/php/7.3/modules/sqlite3.so.so: cannot open shared object file: No such file or directory))", "Unknown")
+      /var/www/html/HelloBlog/vendor/filp/whoops/src/Whoops/Run.php:433
+
+  2   Whoops\Run::handleShutdown()
+      [internal]:0
+
+   Symfony\Component\Process\Exception\ProcessSignaledException  : The process has been signaled with signal "11".
+
+  at /var/www/html/HelloBlog/vendor/symfony/process/Process.php:427
+    423|             usleep(1000);
+    424|         }
+    425| 
+    426|         if ($this->processInformation['signaled'] && $this->processInformation['termsig'] !== $this->latestSignal) {
+  > 427|             throw new ProcessSignaledException($this);
+    428|         }
+    429| 
+    430|         return $this->exitcode;
+    431|     }
+
+  Exception trace:
+
+  1   Symfony\Component\Process\Process::wait()
+      /var/www/html/HelloBlog/vendor/symfony/process/Process.php:235
+
+  2   Symfony\Component\Process\Process::run(Object(Closure))
+      /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Queue/Listener.php:175
+
+  Please use the argument -v to see more details.
+
+   ErrorException  : proc_open(): fork failed - Cannot allocate memory
+
+  at /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+    123|             1 => ['pipe', 'w'],
+    124|             2 => ['pipe', 'w'],
+    125|         ];
+    126| 
+  > 127|         $process = proc_open('stty -a | grep columns', $descriptorspec, $pipes, null, null, ['suppress_errors' => true]);
+    128|         if (\is_resource($process)) {
+    129|             $info = stream_get_contents($pipes[1]);
+    130|             fclose($pipes[1]);
+    131|             fclose($pipes[2]);
+
+  Exception trace:
+
+  1   proc_open("stty -a | grep columns", [], [])
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+
+  2   Symfony\Component\Console\Terminal::getSttyColumns()
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:70
+
+  Please use the argument -v to see more details.
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 4194304) (tried to allocate 32768 bytes) in /var/www/html/HelloBlog/vendor/symfony/finder/Finder.php on line 654
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 2097152) (tried to allocate 4096 bytes) in /var/www/html/HelloBlog/vendor/composer/autoload_static.php on line 4140
+
+   ErrorException  : proc_open(): fork failed - Cannot allocate memory
+
+  at /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+    123|             1 => ['pipe', 'w'],
+    124|             2 => ['pipe', 'w'],
+    125|         ];
+    126| 
+  > 127|         $process = proc_open('stty -a | grep columns', $descriptorspec, $pipes, null, null, ['suppress_errors' => true]);
+    128|         if (\is_resource($process)) {
+    129|             $info = stream_get_contents($pipes[1]);
+    130|             fclose($pipes[1]);
+    131|             fclose($pipes[2]);
+
+  Exception trace:
+
+  1   proc_open("stty -a | grep columns", [], [])
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+
+  2   Symfony\Component\Console\Terminal::getSttyColumns()
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:70
+
+  Please use the argument -v to see more details.
+
+   ErrorException  : proc_open(): fork failed - Cannot allocate memory
+
+  at /var/www/html/HelloBlog/vendor/symfony/process/Process.php:337
+    333|         if (!is_dir($this->cwd)) {
+    334|             throw new RuntimeException(sprintf('The provided cwd "%s" does not exist.', $this->cwd));
+    335|         }
+    336| 
+  > 337|         $this->process = proc_open($commandline, $descriptors, $this->processPipes->pipes, $this->cwd, $envPairs, $options);
+    338| 
+    339|         if (!\is_resource($this->process)) {
+    340|             throw new RuntimeException('Unable to launch a new process.');
+    341|         }
+
+  Exception trace:
+
+  1   proc_open("exec '/usr/bin/php-7.3' 'artisan' 'queue:work' '--once' '--queue=default' '--delay=0' '--memory=128' '--sleep=3' '--tries=3'", [], "/var/www/html/HelloBlog", [])
+      /var/www/html/HelloBlog/vendor/symfony/process/Process.php:337
+
+  2   Symfony\Component\Process\Process::start(Object(Closure))
+      /var/www/html/HelloBlog/vendor/symfony/process/Process.php:233
+
+  Please use the argument -v to see more details.
+
+   ErrorException  : proc_open(): fork failed - Cannot allocate memory
+
+  at /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+    123|             1 => ['pipe', 'w'],
+    124|             2 => ['pipe', 'w'],
+    125|         ];
+    126| 
+  > 127|         $process = proc_open('stty -a | grep columns', $descriptorspec, $pipes, null, null, ['suppress_errors' => true]);
+    128|         if (\is_resource($process)) {
+    129|             $info = stream_get_contents($pipes[1]);
+    130|             fclose($pipes[1]);
+    131|             fclose($pipes[2]);
+
+  Exception trace:
+
+  1   proc_open("stty -a | grep columns", [], [])
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+
+  2   Symfony\Component\Console\Terminal::getSttyColumns()
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:70
+
+  Please use the argument -v to see more details.
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+mmap() failed: [12] Cannot allocate memory
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/nesbot/carbon/src/Carbon/Traits/Localization.php on line 136
+
+mmap() failed: [12] Cannot allocate memory
+PHP Fatal error:  Out of memory (allocated 8388608) (tried to allocate 65536 bytes) in /var/www/html/HelloBlog/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php on line 122
+
+   ErrorException  : proc_open(): fork failed - Cannot allocate memory
+
+  at /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+
+   ErrorException  : proc_open(): fork failed - Cannot allocate memory
+
+  at /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+    123|             1 => ['pipe', 'w'],
+    124|             2 => ['pipe', 'w'],
+    125|         ];
+    126| 
+  > 127|         $process = proc_open('stty -a | grep columns', $descriptorspec, $pipes, null, null, ['suppress_errors' => true]);
+    128|         if (\is_resource($process)) {
+    129|             $info = stream_get_contents($pipes[1]);
+    130|             fclose($pipes[1]);
+    131|             fclose($pipes[2]);
+
+  Exception trace:
+
+  1   proc_open("stty -a | grep columns", [], [])
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+
+  2   Symfony\Component\Console\Terminal::getSttyColumns()
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:70
+
+  Please use the argument -v to see more details.
+    123|             1 => ['pipe', 'w'],
+    124|             2 => ['pipe', 'w'],
+    125|         ];
+    126| 
+  > 127|         $process = proc_open('stty -a | grep columns', $descriptorspec, $pipes, null, null, ['suppress_errors' => true]);
+    128|         if (\is_resource($process)) {
+    129|             $info = stream_get_contents($pipes[1]);
+    130|             fclose($pipes[1]);
+    131|             fclose($pipes[2]);
+
+  Exception trace:
+
+  1   proc_open("stty -a | grep columns", [], [])
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:127
+
+  2   Symfony\Component\Console\Terminal::getSttyColumns()
+      /var/www/html/HelloBlog/vendor/symfony/console/Terminal.php:70
+
+  Please use the argument -v to see more details.
+[2020-08-09 08:24:34][CT48oh4RSPxFbRstmUP4RiE5waMSUv0J] Processing: App\Events\MessageSent
+[2020-08-09 08:24:34][CT48oh4RSPxFbRstmUP4RiE5waMSUv0J] Processed:  App\Events\MessageSent
+[2020-08-09 09:03:29][j2AT1hiXjnjmjBQ8QvURiYXLAIEMmThy] Processing: App\Events\MessageSent
+[2020-08-09 09:03:29][j2AT1hiXjnjmjBQ8QvURiYXLAIEMmThy] Processed:  App\Events\MessageSent
